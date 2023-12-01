@@ -18,7 +18,7 @@ export default function Modal({ children, onClose, isOpen }: ModalProps) {
     <div className="fixed left-0 top-0 h-screen w-screen bg-slate-500 bg-opacity-80 p-4">
       <div
         ref={ref}
-        className="flex h-full w-full flex-grow items-center justify-center border border-red-500"
+        className="flex h-full w-full flex-grow items-center justify-center"
       >
         {children}
       </div>
