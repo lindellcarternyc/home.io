@@ -18,3 +18,22 @@ model Post {
 
     @@index([name])
 }
+
+model Item {
+    id          String      @id @default(uuid())
+    createdAt   DateTime    @default(now())
+    updatedAt   DateTime    @updatedAt
+    
+    name        String
+    category    Category?   @relation(references: [id], fields: [categoryId])
+    categoryId  String?
+}
+
+model Category {
+    id      String      @id @default(uuid())
+    createdAt   DateTime    @default(now())
+    updatedAt   DateTime    @updatedAt
+    
+    name    String
+    items   Item[]
+}
