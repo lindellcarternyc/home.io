@@ -7,8 +7,6 @@ interface ItemListProps {
 }
 
 export default function ItemList({ items }: ItemListProps) {
-  if (items.length === 0) return <p>Add an item!</p>;
-
   return (
     <GridList
       items={items.sort(

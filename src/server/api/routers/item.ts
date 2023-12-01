@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "../trpc";
+import { CreateItemSchema } from "~/schema/item.schema";
 
 const editItemSchema = z.object({
   id: z.string(),
@@ -23,6 +24,21 @@ export const itemRouter = createTRPCRouter({
       return ctx.db.item.findFirstOrThrow({
         where: { id },
         include: { category: true },
+      });
+    }),
+  create: publicProcedure
+    .input(CreateItemSchema)
+    .mutation(async ({ ctx, input: { categoryId, name } }) => {
+      const category = await ctx.db.category.findFirst({
+        where: { id: categoryId },
+      });
+      if (!category) throw new Error("Couldn't find category.");
+
+      return await ctx.db.item.create({
+        data: {
+          categoryId,
+          name,
+        },
       });
     }),
   editItem: publicProcedure
