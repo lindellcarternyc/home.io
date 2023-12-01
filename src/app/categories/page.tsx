@@ -18,7 +18,7 @@ export default function Categories() {
     },
   });
 
-  const [modalIsOpen, setModalIsOpen] = useState(true);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const onCreateCategory = async ({ name }: { name: string }) => {
     createCategory.mutate({ name });
