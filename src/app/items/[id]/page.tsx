@@ -31,7 +31,7 @@ export default function ItemPage() {
   const item = itemQuery.data;
 
   return (
-    <div>
+    <div className="pt-4">
       <div className="flex flex-col gap-2 border-b pb-4">
         <h2 className="text-2xl">{itemQuery.data.name}</h2>
         <h3 className="text-xl text-slate-500">
