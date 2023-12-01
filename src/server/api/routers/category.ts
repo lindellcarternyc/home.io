@@ -1,3 +1,4 @@
+import { CreateCategorySchema } from "~/schema/category.schema";
 import { createTRPCRouter, publicProcedure } from "../trpc";
 
 export const categoryRouter = createTRPCRouter({
@@ -6,4 +7,9 @@ export const categoryRouter = createTRPCRouter({
       include: { items: true },
     });
   }),
+  create: publicProcedure
+    .input(CreateCategorySchema)
+    .mutation(async ({ ctx, input: { name } }) => {
+      return await ctx.db.category.create({ data: { name } });
+    }),
 });
