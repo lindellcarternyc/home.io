@@ -40,7 +40,7 @@ export default function Header() {
   };
 
   return (
-    <div>
+    <div className="fixed w-full">
       <header className="relative bg-black p-4 text-white">
         <h1 className="text-center text-xl">Home.io</h1>
         <div className="absolute right-4 top-4">

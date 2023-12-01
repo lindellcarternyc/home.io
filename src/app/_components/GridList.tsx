@@ -8,7 +8,7 @@ export default function GridList<Item extends { id: string }>({
   renderItem,
 }: GridListProps<Item>) {
   return (
-    <ul className="grid gap-4 p-4 md:grid-cols-2 md:p-0 md:pt-4">
+    <ul className="grid gap-4 md:grid-cols-2">
       {items.map((item) => (
         <li key={item.id} className="rounded border p-2 shadow-md">
           {renderItem(item)}
