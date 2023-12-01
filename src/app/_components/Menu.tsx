@@ -2,12 +2,12 @@
 
 import type { ILink } from "./interfaces";
 
-interface NavbarProps {
+interface MenuProps {
   links: ILink[];
   onClick: (href: string) => void;
 }
 
-export default function Navbar({ links, onClick }: NavbarProps) {
+export default function Menu({ links, onClick }: MenuProps) {
   return (
     <nav className="bg-black text-white">
       <ul className="flex flex-col items-end gap-4 p-4">

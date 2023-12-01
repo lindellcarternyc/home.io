@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import AddButton from "./AddButton";
 import MenuButton from "./MenuButton";
-import Navbar from "./Navbar";
+import Menu from "./Menu";
 import type { ILink } from "./interfaces";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -24,13 +24,13 @@ const LINKS: ILink[] = [
 ];
 
 export default function Header() {
-  const [isNavbarOpen, setIsNavarOpen] = useState(false);
+  const [isMenu, setIsNavarOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
 
   const onClickMenuButton = () => setIsNavarOpen((current) => !current);
 
-  const onClickNavLink = (href: string) => {
+  const onClickMenuLink = (href: string) => {
     setIsNavarOpen(false);
 
     if (pathname !== href) {
@@ -51,8 +51,8 @@ export default function Header() {
           </div>
         </div>
       </header>
-      <div className={`md:hidden ${!isNavbarOpen ? "hidden" : ""}`}>
-        <Navbar links={LINKS} onClick={onClickNavLink} />
+      <div className={`md:hidden ${!isMenu ? "hidden" : ""}`}>
+        <Menu links={LINKS} onClick={onClickMenuLink} />
       </div>
     </div>
   );
