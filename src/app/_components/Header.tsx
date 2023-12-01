@@ -7,6 +7,7 @@ import MenuButton from "./MenuButton";
 import Menu from "./Menu";
 import type { ILink } from "./interfaces";
 import { usePathname, useRouter } from "next/navigation";
+import Navbar from "./Navbar";
 
 const LINKS: ILink[] = [
   {
@@ -53,6 +54,9 @@ export default function Header() {
       </header>
       <div className={`md:hidden ${!isMenu ? "hidden" : ""}`}>
         <Menu links={LINKS} onClick={onClickMenuLink} />
+      </div>
+      <div className="hidden md:block">
+        <Navbar links={LINKS} />
       </div>
     </div>
   );
