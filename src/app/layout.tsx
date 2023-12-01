@@ -28,7 +28,7 @@ export default function RootLayout({
         <TRPCReactProvider cookies={cookies().toString()}>
           <>
             <Header />
-            {children}
+            <main className="m-auto max-w-3xl">{children}</main>
           </>
         </TRPCReactProvider>
       </body>
