@@ -43,6 +43,7 @@ export default function Categories() {
         <RenderQuery
           query={categoryQuery}
           renderData={(categories) => {
+            if (!categories.length) return <p>Add a category!</p>;
             return (
               <div>
                 <CategoryList categories={categories} />
