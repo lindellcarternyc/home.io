@@ -49,6 +49,11 @@ export default function CreateItem({ onCancel, onSubmit }: CreateItemProps) {
                   id="name"
                   {...form.register("name")}
                 />
+                {form.formState.errors?.name && (
+                  <p className="text-red-800">
+                    {form.formState.errors.name.message}
+                  </p>
+                )}
               </div>
               <div className="flex justify-between">
                 <label htmlFor="category">Category:</label>
